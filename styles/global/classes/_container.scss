@@ -1,0 +1,22 @@
+@use "../variables/breakpoints" as *;
+@use "../mixin/break" as *;
+@use "sass:list";
+// this is global class for centerize container element and handle break point
+.g-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  @each $key, $value in $breakpoints {
+    @include break($key) {
+      @if list.index($fluid-breakpoints, $key) {
+        max-width: auto;
+        padding: spacing(4);
+      } @else {
+        max-width: #{$value};
+        padding: 0;
+      }
+    }
+  }
+}

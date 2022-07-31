@@ -1,0 +1,8 @@
+@use "../variables/colors" as *;
+@mixin color($name, $property) {
+  @if $property == "bg" {
+    background-color: map-get($colors, #{$name});
+  } @else if property == "text" {
+    color: map-get($colors, #{$name});
+  }
+}
