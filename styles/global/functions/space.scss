@@ -1,0 +1,4 @@
+@use "../variables/spaces" as *;
+@function space($key) {
+  @return map-get($spacing, $key);
+}
