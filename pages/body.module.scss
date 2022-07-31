@@ -4,15 +4,19 @@
     @include color(white-c, bg);
     button,
     input {
-      @include color(element-d, bg);
+      @include color(white-c, bg);
     }
     @include color(text-l, txt);
   }
   &--dark {
+    // > * {
+    //   box-shadow: none;
+    // }
     @include color(background-d, bg);
     button,
     input {
       @include color(element-d, bg);
+      @include color(white-c, txt);
     }
 
     @include color(white-c, txt);

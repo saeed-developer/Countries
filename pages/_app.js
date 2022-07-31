@@ -11,7 +11,6 @@ function MyApp({ Component, pageProps }) {
     <ThemeContext.Provider value={[isDark, setIsDark]}>
       <div
         className={clsx([
-          styles["container"],
           isDark ? styles["container--dark"] : styles["container--light"],
         ])}
       >

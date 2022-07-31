@@ -1,0 +1,25 @@
+@use "styles/global/global" as *;
+.container {
+  &__inputs {
+    display: flex;
+    justify-content: space-between;
+
+    flex-direction: column;
+    margin: space(10);
+  }
+}
+@include break("md") {
+  .container {
+    &__inputs {
+      flex-direction: row;
+      border-radius: 10px;
+    }
+  }
+}
+@include break(md) {
+  .container {
+    &__inputs {
+      align-items: center;
+    }
+  }
+}

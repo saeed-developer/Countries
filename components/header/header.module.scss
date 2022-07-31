@@ -24,7 +24,6 @@
 @include break("md") {
   .container {
     &__content {
-      max-width: 1440px;
       &--title {
         padding-left: space(10);
         font-size: 1.5rem;
