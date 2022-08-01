@@ -1,5 +1,6 @@
 import { ALL_COUNTRIES } from "api/EndPoints";
 import { countriesInstance } from "api/Instance";
+import clsx from "clsx";
 import CountryCard from "components/home/countryCard";
 import Filter from "components/home/filter";
 import Search from "components/home/search";
@@ -15,7 +16,7 @@ function Home({ countries }) {
       </Head>
       <div className={styles["container__inputs"]}>
         <Search data={countries} setSearchedData={setData} />
-        <Filter />
+        <Filter data={countries} setSearchedData={setData} />
       </div>
       <div className={styles["container__countries"]}>
         {data.map((item) => {

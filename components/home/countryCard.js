@@ -1,14 +1,19 @@
 import Image from "next/image";
-import { Seprator } from "utils/seprator";
+import { useRouter } from "next/router";
+import { seprator } from "utils/seprator";
 import styles from "./countryCard.module.scss";
 const CountryCard = ({ countryData }) => {
   const { name, capital, flag, region, population } = countryData;
+  const router = useRouter();
+  const handleClick = () => {
+    router.push(`/${name}`);
+  };
   return (
-    <div className={styles["container"]}>
-      <Image src={flag} width={250} height={187.5} />
+    <div onClick={handleClick} className={styles["container"]}>
+      <Image alt={name} src={flag} width={250} height={187.5} />
       <div>{name}</div>
       <div>
-        Population: <span>{Seprator(population)}</span>
+        Population: <span>{seprator(population)}</span>
       </div>
       <div>
         Region: <span>{region}</span>

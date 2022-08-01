@@ -11,11 +11,15 @@
   gap: 10px;
 
   margin: space(5) 0;
+  &--light {
+    @include color(white-c, bg);
+  }
   &--dark {
     @include color(element-d, bg);
   }
   &__items {
     position: absolute;
+
     top: 50px;
     z-index: 2;
     width: 100%;
@@ -32,8 +36,13 @@
 @include break("md") {
   .container {
     width: 200px;
+    cursor: pointer;
     &__items {
       width: 200px;
+
+      span {
+        cursor: pointer;
+      }
     }
   }
 }

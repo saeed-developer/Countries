@@ -1,4 +1,4 @@
-export const Seprator = (number) => {
+export const seprator = (number) => {
   const arrayOfNumbers = String(number).split("");
   let output = "";
   while (arrayOfNumbers.length > 3) {

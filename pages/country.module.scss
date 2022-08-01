@@ -1,0 +1,24 @@
+@use "styles/global/global" as *;
+.container {
+  margin: space(8) space(6) space(6) space(6);
+
+  &__btn {
+    height: 40px;
+    width: 130px;
+
+    border: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    gap: 15px;
+    span {
+      font-weight: 300;
+    }
+  }
+  &__detail {
+    margin-top: space(10);
+  }
+}

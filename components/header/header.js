@@ -6,12 +6,15 @@ const Header = () => {
   const [isDarkMode, setIsDarkMode] = useContext(ThemeContext);
   return (
     <div className={styles["container"]}>
-      <div className={styles["container__content"]}>
+      <div
+        className={styles["container__content"]}
+        onClick={() => setIsDarkMode(!isDarkMode)}
+      >
         <div className={styles["container__content--title"]}>
           Where in the world?
         </div>
         <div className={styles["container__content--dark-mode"]}>
-          <MdOutlineDarkMode onClick={() => setIsDarkMode(!isDarkMode)} />
+          <MdOutlineDarkMode />
           <span>{isDarkMode ? "Dark Mode" : "Light Mode"}</span>
         </div>
       </div>

@@ -26,12 +26,17 @@
     max-width: 1440px;
     align-items: center;
     margin: auto;
+    padding-right: space(5);
+    padding-left: space(5);
     &__inputs {
       flex-direction: row;
       border-radius: 10px;
       align-items: center;
       width: 100%;
       justify-content: space-between;
+      > :last-child {
+        margin-right: 0px;
+      }
     }
     &__countries {
       flex-direction: row;
