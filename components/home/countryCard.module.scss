@@ -1,0 +1,21 @@
+@use "styles/global/global" as *;
+.container {
+  height: 350px;
+  width: 250px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+  overflow: hidden;
+  div {
+    padding-left: space(6);
+    font-weight: 600;
+    span {
+      font-weight: 300;
+    }
+  }
+  :nth-child(2) {
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding-top: space(4);
+    padding-bottom: space(4);
+  }
+}
