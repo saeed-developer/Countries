@@ -4,6 +4,7 @@ import styles from "./country.module.scss";
 import { BiArrowBack } from "react-icons/bi";
 import { useRouter } from "next/router";
 import Detail from "components/detail/detail";
+import latinize from "latinize";
 const Country = ({ detail }) => {
   const router = useRouter();
 
@@ -24,9 +25,10 @@ const Country = ({ detail }) => {
 
 export async function getServerSideProps({ query }) {
   const { country } = query;
+  const englishName = latinize(country);
   const detail = await countriesInstance.get(
     COUNTRY(
-      country,
+      englishName,
       "flag,nativeName,population,region,subregion,capital,topLevelDomain,currencies,languages,borders"
     )
   );
