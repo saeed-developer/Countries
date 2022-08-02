@@ -10,11 +10,14 @@ import {
 import clsx from "clsx";
 import { ThemeContext } from "context/theme";
 import { debounce } from "utils/debounce";
+import { useRouter } from "next/router";
 
 const Search = ({ data, setSearchedData }) => {
   const [isDark] = useContext(ThemeContext);
   const [value, setValue] = useState();
   const [name, setName] = useState();
+  const router = useRouter();
+  const { continent } = router.query;
   //using useCallback to get same memory reference on each render so the last timer can be removed
   const delayedSearch = useCallback(
     debounce((value) => setName(value), 500),
@@ -24,25 +27,43 @@ const Search = ({ data, setSearchedData }) => {
     setValue(value);
     delayedSearch(value);
   };
+  //searchig without blocking ui
+  //this feature supported in react 18.x.x
   const [, startTransition] = useTransition();
   useEffect(() => {
-    if (name) {
-      //this is alternative way for searching without blocking ui instead of webworkers
-      //this feature supported in react 18.x.x
-      startTransition(() => {
-        const newList = [];
+    //this is all logic for filter and search
+    startTransition(() => {
+      const newList = [];
+      if (name) {
         for (const item of data) {
-          if (item.name.toLowerCase().startsWith(name.toLowerCase())) {
-            newList.push(item);
+          if (continent) {
+            if (
+              item.name.toLowerCase().startsWith(name.toLowerCase()) &&
+              continent.toLowerCase() === item.region.toLowerCase()
+            ) {
+              newList.push(item);
+            }
+          } else {
+            if (item.name.toLowerCase().startsWith(name.toLowerCase())) {
+              newList.push(item);
+            }
           }
         }
-
         setSearchedData(newList);
-      });
-    } else {
-      setSearchedData(data);
-    }
-  }, [name]);
+      } else {
+        if (continent) {
+          for (const item of data) {
+            if (continent.toLowerCase() === item.region.toLowerCase()) {
+              newList.push(item);
+            }
+          }
+          setSearchedData(newList);
+        } else {
+          setSearchedData(data);
+        }
+      }
+    });
+  }, [name, router.query]);
   return (
     <div
       className={clsx([
