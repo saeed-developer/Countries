@@ -3,7 +3,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className="g-container">{children}</main>
     </>
   );
 }

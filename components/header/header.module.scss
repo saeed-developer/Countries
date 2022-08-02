@@ -24,6 +24,8 @@
 @include break("md") {
   .container {
     &__content {
+      max-width: 1440px;
+      margin: auto;
       cursor: pointer;
       &--title {
         padding-left: space(10);

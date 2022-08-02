@@ -4,7 +4,12 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-
+  > :first-child {
+    width: 100%;
+  }
+  > :nth-child(2) > :nth-child(2) > :nth-child(2) {
+    margin-top: space(7);
+  }
   &__name {
     margin-top: space(7);
     margin-bottom: space(7);
@@ -16,7 +21,7 @@
     > :last-child {
       font-weight: 300;
     }
-    margin-bottom: space(7);
+    margin-bottom: space(3);
   }
   &__more-info {
     margin-top: space(3);
@@ -42,6 +47,39 @@
       width: 100px;
       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
       font-weight: 300;
+    }
+  }
+}
+@include break(md) {
+  .container {
+    button {
+      cursor: pointer;
+    }
+    display: grid;
+    grid-template-columns: minmax(auto, calc(1440px / 2)) minmax(
+        auto,
+        calc(1440px / 2)
+      );
+    column-gap: 50px;
+    align-items: center;
+    &__info {
+      margin-bottom: 0px;
+    }
+    &__more-info {
+      margin-top: 0px;
+    }
+
+    > :nth-child(2) > :nth-child(2) {
+      > :nth-child(2) {
+        margin-top: 0px;
+      }
+      display: flex;
+      gap: 100px;
+      > div {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
     }
   }
 }
