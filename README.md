@@ -3,7 +3,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Getting Started
 
 you can see the live demo of application on \
-http://94.101.186.94/ \
+
+https://countries-three-jet.vercel.app/ \
+
 OR \
 if you want to run project locally
 you should use node js version upper than 17
@@ -43,7 +45,7 @@ using useTransition for search and filter to prevent main Thread block \
 use bare html and css without any additional heavy library \
 handle dark theme with context api without any additional global state managment lib \
 home page countries requested on build time once \
-content are server side rendered(execpt borders in detail page)
+content are server side rendered(except borders in detail page)
 
 ## clean code
 
